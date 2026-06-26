@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pepcl"
+version = "0.1.0"
+description = "PepCL continual learning for peptide-MHC prediction models"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "Prathamesh Chati"},
+    {name = "Ntranos Lab"}
+]
+keywords = [
+    "peptide-MHC",
+    "continual learning",
+    "immunology",
+    "machine learning",
+    "MHCPrime"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+dependencies = [
+    "mhcprime @ git+https://github.com/ntranoslab/MHCPrime.git@v0.1.0",
+    "numpy",
+    "pandas",
+    "torch",
+    "tqdm",
+    "transformers",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+notebooks = [
+    "jupyter",
+    "matplotlib",
+    "scikit-learn",
+]
+
+[project.urls]
+Homepage = "https://github.com/ntranoslab/PepCL"
+Repository = "https://github.com/ntranoslab/PepCL"
+Issues = "https://github.com/ntranoslab/PepCL/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pepcl = []

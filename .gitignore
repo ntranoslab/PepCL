@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# PepCL external data and outputs
+pepcl_data/
+pepcl_outputs/
+model_checkpoints/
+outputs/
+
+# Large/generated artifacts
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pickle
+*.npz
+*.npy
+*.csv.gz
+*.tsv.gz
+
+# Temporary caches
+*_cache.pt
+dataset_cache.pt
