@@ -16,6 +16,13 @@ The current quickstart demonstrates PepCL adaptation using yeast display data ([
 
 ## Installation
 
+We recommend installing PepCL in a clean Conda environment to avoid modifying packages in an existing Python environment.
+
+```bash
+conda create -n pepcl_env python=3.9 -y
+conda activate pepcl_env
+```
+
 Clone the PepCL repository and install it in editable mode:
 
 ```bash
