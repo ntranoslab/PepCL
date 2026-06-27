@@ -10,6 +10,8 @@ from .utils import (
     resolve_csv_path,
     save_pickle,
     set_seed,
+    get_default_pepcl_params,
+    get_default_pepcl_micro_params,
 )
 
 from .metrics import (
@@ -40,6 +42,8 @@ __all__ = [
     "resolve_csv_path",
     "save_pickle",
     "set_seed",
+    "get_default_pepcl_params",
+    "get_default_pepcl_micro_params",
 
     # metrics
     "compute_metric_matrix",

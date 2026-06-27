@@ -125,3 +125,142 @@ def resolve_csv_path(path: Union[str, Path]) -> Path:
         "Checked compressed/uncompressed CSV variants. "
         "Make sure the PepCL data bundle is downloaded under pepcl_data/."
     )
+
+def get_default_pepcl_params(**overrides):
+    """
+    Return default parameters for standard PepCL training.
+
+    Runtime-specific objects such as tokenizer, device, and collate_fn are
+    intentionally excluded and should be passed explicitly in the notebook or
+    calling script.
+
+    Parameters can be overridden by passing keyword arguments.
+    """
+    params = dict(
+        # steps
+        steps=200,
+        output_dir=None,
+        save_every_n_steps=2000,
+        seed=42,
+        num_workers=16,
+
+        # sampling
+        num_ms_pos=2000,
+        num_nonms_pos=2000,
+        ms_neg_ratio=1.0,
+        nonms_neg_ratio=1.0,
+
+        auto_calibrate=True,
+        calibration_steps=1,
+
+        ms_batch_size=3072,
+        nonms_batch_size=3072,
+
+        # optimization
+        encoder_lr=2e-4,
+        decoder_lr=2e-4,
+        weight_decay=0.01,
+        warmup_ratio=0.1,
+        update_domain_embeddings=False,
+
+        # continual learning parameters
+        primary_task_id=1,
+        sequential_backprop=True,
+
+        # losses
+        ms_loss_type="logsmoothap",
+        ms_loss_alpha=10.0,
+        ms_lambda=1.0,
+        nonms_loss_type="logsmoothap",
+        nonms_loss_alpha=10.0,
+        ft_lambda=1.0,
+
+        # drift regularization
+        dr_lambda=1e-5,
+        dr_loss_type="mse",
+    )
+
+    params.update(overrides)
+    return params
+
+
+def get_default_pepcl_micro_params(**overrides):
+    """
+    Return default parameters for PepCL microbatch training.
+
+    Runtime-specific objects such as tokenizer, device, and collate_fn are
+    intentionally excluded and should be passed explicitly in the notebook or
+    calling script.
+
+    Parameters can be overridden by passing keyword arguments.
+    """
+    import torch
+
+    params = dict(
+        # execution mode
+        execution_mode="microbatch",
+
+        # steps
+        steps=200,
+        output_dir=None,
+        save_every_n_steps=2000,
+        seed=42,
+        num_workers=4,
+
+        # sampling / logical loss batch size
+        num_ms_pos=2000,
+        num_nonms_pos=2000,
+        ms_neg_ratio=1.0,
+        nonms_neg_ratio=1.0,
+
+        auto_calibrate=True,
+        calibration_steps=1,
+
+        ms_batch_size=3072,
+        nonms_batch_size=3072,
+
+        # physical GPU microbatch size
+        ms_microbatch_size=512,
+        nonms_microbatch_size=512,
+
+        # optimization
+        encoder_lr=2e-4,
+        decoder_lr=2e-4,
+        weight_decay=0.01,
+        warmup_ratio=0.1,
+        update_domain_embeddings=False,
+
+        # continual learning parameters
+        primary_task_id=1,
+        sequential_backprop=True,
+
+        # losses
+        ms_loss_type="logsmoothap",
+        ms_loss_alpha=10.0,
+        ms_lambda=1.0,
+        nonms_loss_type="logsmoothap",
+        nonms_loss_alpha=10.0,
+        ft_lambda=1.0,
+
+        # drift regularization
+        dr_lambda=1e-5,
+        dr_loss_type="mse",
+
+        # PepCL_Micro behavior
+        micro_strategy="auto",
+        cache_forward_train_mode=True,
+        preserve_cache_rng_state=True,
+
+        # AMP
+        use_amp=True,
+        amp_dtype=torch.float16,
+
+        # memory behavior
+        empty_cache_between_streams=False,
+
+        # debugging / safety
+        fail_on_nonfinite_loss=True,
+    )
+
+    params.update(overrides)
+    return params
