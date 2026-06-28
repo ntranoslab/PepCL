@@ -30,7 +30,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "mhcprime @ git+https://github.com/ntranoslab/MHCPrime.git@v0.1.0",
+    "mhcprime @ git+https://github.com/ntranoslab/MHCPrime.git",
     "numpy",
     "pandas",
     "torch",
