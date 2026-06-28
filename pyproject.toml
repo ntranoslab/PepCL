@@ -36,6 +36,9 @@ dependencies = [
     "torch",
     "tqdm",
     "transformers",
+    "scikit-learn",
+    "scipy",
+    "matplotlib",
 ]
 
 [project.optional-dependencies]
@@ -45,8 +48,6 @@ dev = [
 
 notebooks = [
     "jupyter",
-    "matplotlib",
-    "scikit-learn",
 ]
 
 [project.urls]

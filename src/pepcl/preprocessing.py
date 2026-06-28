@@ -73,8 +73,8 @@ def _semi_join_on_allele_length(
         how="left",
     )
 
-    out = out[out["_pepcl_keep_key"].fillna(False)].drop(
-        columns=["_pepcl_keep_key"]
+    out = out[out["_pepcl_keep_key"].eq(True)].drop(
+    columns=["_pepcl_keep_key"]
     )
 
     return out.reset_index(drop=True)

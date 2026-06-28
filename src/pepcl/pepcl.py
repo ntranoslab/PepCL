@@ -1024,6 +1024,7 @@ class PepCL:
             metrics['dr_loss'].append(l_dr_v)
 
             if self.output_dir and (step + 1) % self.save_every_n_steps == 0:
+                os.makedirs(self.output_dir, exist_ok=True)
                 torch.save(
                     self.model.state_dict(),
                     os.path.join(self.output_dir, f"pepcl_step_{step+1}.pt")
