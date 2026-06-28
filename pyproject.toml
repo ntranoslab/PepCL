@@ -31,14 +31,14 @@ classifiers = [
 
 dependencies = [
     "mhcprime @ git+https://github.com/ntranoslab/MHCPrime.git",
-    "numpy",
-    "pandas",
-    "torch",
-    "tqdm",
-    "transformers",
-    "scikit-learn",
-    "scipy",
-    "matplotlib",
+    "numpy>=1.23,<2.0",
+    "pandas>=2.0,<2.2.3",
+    "torch>=2.0,<2.7",
+    "tqdm>=4.60",
+    "transformers>=4.30,<4.58",
+    "scikit-learn>=1.2,<1.7",
+    "scipy>=1.9,<1.14",
+    "matplotlib>=3.7,<3.10",
 ]
 
 [project.optional-dependencies]
