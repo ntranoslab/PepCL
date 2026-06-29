@@ -76,6 +76,23 @@ Main dependencies include:
 
 A CUDA-enabled GPU is recommended for running the full quickstart notebook. The notebook can run on CPU for small tests, but training and inference will be substantially slower.
 
+## Hardware requirements
+
+PepCL is GPU-oriented because it updates MHCPrime using new training data and optional MS replay data. CPU execution may be sufficient for installation checks and very small tests, but GPU execution is strongly recommended for the quickstart notebook and for practical PepCL updating.
+
+Recommended hardware:
+
+* Installation and unit tests: CPU or any CUDA-capable GPU.
+* Small quickstart runs: CUDA GPU with at least 8 GB GPU memory.
+* PepCL microbatch backend: CUDA GPU with at least 8-16 GB GPU memory recommended.
+* Standard PepCL updates: modern CUDA GPU with 16 GB or more GPU memory recommended.
+* Manuscript-scale experiments: local or server GPUs with larger memory capacity are recommended.
+
+The microbatch backend reduces GPU memory usage by splitting large effective batches into smaller microbatches. This is useful for running PepCL on smaller GPUs, but it does not make full continual-learning updates CPU-oriented.
+
+The Colab notebook is intended as a lightweight demonstration of the PepCL workflow. Free Colab GPU availability and GPU type may vary, so larger runs and manuscript-scale experiments should be performed on a local workstation or server GPU when possible.
+
+
 ## Data
 
 The quickstart notebook uses external PepCL example data that are not stored directly in this GitHub repository. Download the PepCL data bundle from [Google Drive](https://drive.google.com/drive/folders/128SrLjjlG_L_KzFFxBwU_zmqtQyG4yow?usp=sharing).
