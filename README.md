@@ -95,7 +95,7 @@ The Colab notebook is intended as a lightweight demonstration of the PepCL workf
 
 ## Data
 
-The quickstart notebook uses external PepCL example data that are not stored directly in this GitHub repository. Download the PepCL data bundle from [Google Drive](https://drive.google.com/drive/folders/128SrLjjlG_L_KzFFxBwU_zmqtQyG4yow?usp=sharing).
+The quickstart notebook uses external PepCL example data that are not stored directly in this GitHub repository. Download the PepCL data bundle from [Google Drive](https://drive.google.com/drive/folders/1xG_c22fytWbWLSlF_SjaYuC9Aq0DYDdG?usp=drive_link).
 
 Place the downloaded data under:
 
