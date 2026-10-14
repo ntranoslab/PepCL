@@ -201,7 +201,7 @@ def get_default_pepcl_micro_params(**overrides):
         execution_mode="microbatch",
 
         # steps
-        steps=200,
+        steps=300,
         output_dir=None,
         save_every_n_steps=2000,
         seed=42,
