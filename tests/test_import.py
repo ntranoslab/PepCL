@@ -32,7 +32,7 @@ def test_default_pepcl_params_have_expected_values():
 
     params = get_default_pepcl_params()
 
-    assert params["steps"] == 200
+    assert params["steps"] == 300
     assert params["num_workers"] == 16
     assert params["num_ms_pos"] == 2000
     assert params["num_nonms_pos"] == 2000
@@ -67,7 +67,7 @@ def test_default_pepcl_micro_params_have_expected_values():
     params = get_default_pepcl_micro_params()
 
     assert params["execution_mode"] == "microbatch"
-    assert params["steps"] == 200
+    assert params["steps"] == 300
     assert params["num_workers"] == 4
     assert params["num_ms_pos"] == 2000
     assert params["num_nonms_pos"] == 2000

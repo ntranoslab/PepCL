@@ -138,7 +138,7 @@ def get_default_pepcl_params(**overrides):
     """
     params = dict(
         # steps
-        steps=200,
+        steps=300,
         output_dir=None,
         save_every_n_steps=2000,
         seed=42,
